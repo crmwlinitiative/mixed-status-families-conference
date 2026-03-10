@@ -1,0 +1,898 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>American Families Under Threat — April 9, 2026 | ASU Law</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Source+Sans+3:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --maroon: #8C1D40;
+    --maroon-dark: #6B1630;
+    --gold: #FFC627;
+    --gold-soft: #FFD75E;
+    --white: #FAFAFA;
+    --black: #191919;
+    --gray-100: #F5F3F0;
+    --gray-200: #E8E3DB;
+    --gray-400: #A09585;
+    --gray-600: #5C5249;
+    --gray-800: #2E2926;
+    --font-display: 'DM Serif Display', Georgia, serif;
+    --font-body: 'Source Sans 3', 'Helvetica Neue', Arial, sans-serif;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: var(--font-body);
+    color: var(--gray-800);
+    background: var(--white);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ── UTILITY BAR ── */
+  .utility-bar {
+    background: var(--black);
+    padding: 8px 0;
+    font-size: 13px;
+    letter-spacing: 0.04em;
+  }
+  .utility-bar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #ccc;
+  }
+  .utility-bar a { color: var(--gold); text-decoration: none; font-weight: 600; }
+  .utility-bar a:hover { text-decoration: underline; }
+
+  /* ── HEADER ── */
+  .site-header {
+    background: var(--maroon);
+    padding: 18px 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 20px rgba(0,0,0,0.15);
+  }
+  .site-header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .header-brand {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+  .header-brand .school-name {
+    color: white;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    opacity: 0.85;
+  }
+  .header-brand .initiative-name {
+    color: var(--gold);
+    font-family: var(--font-display);
+    font-size: 18px;
+  }
+  .header-nav {
+    display: flex;
+    gap: 28px;
+    align-items: center;
+  }
+  .header-nav a {
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+    transition: color 0.2s;
+  }
+  .header-nav a:hover { color: var(--gold); }
+  .btn-rsvp-nav {
+    background: var(--gold) !important;
+    color: var(--maroon) !important;
+    padding: 10px 24px;
+    border-radius: 4px;
+    font-weight: 700 !important;
+    letter-spacing: 0.03em;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .btn-rsvp-nav:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 14px rgba(255,198,39,0.4);
+  }
+
+  /* ── CONTAINER ── */
+  .container { max-width: 1120px; margin: 0 auto; padding: 0 24px; }
+
+  /* ── HERO ── */
+  .hero {
+    background: linear-gradient(145deg, var(--maroon) 0%, var(--maroon-dark) 60%, #4A0E22 100%);
+    position: relative;
+    overflow: hidden;
+    padding: 100px 0 80px;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -40%;
+    right: -10%;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(255,198,39,0.08) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+  .hero::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 6px;
+    background: var(--gold);
+  }
+  .hero-inner { position: relative; z-index: 1; }
+  .hero-dateline {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    background: rgba(255,198,39,0.12);
+    border: 1px solid rgba(255,198,39,0.25);
+    border-radius: 4px;
+    padding: 10px 20px;
+    color: var(--gold);
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    margin-bottom: 28px;
+    animation: fadeDown 0.8s ease-out;
+  }
+  .hero-dateline .dot {
+    width: 5px;
+    height: 5px;
+    background: var(--gold);
+    border-radius: 50%;
+  }
+  .hero h1 {
+    font-family: var(--font-display);
+    color: white;
+    font-size: clamp(2.4rem, 5vw, 3.6rem);
+    line-height: 1.15;
+    max-width: 800px;
+    margin-bottom: 20px;
+    animation: fadeUp 0.9s ease-out;
+  }
+  .hero h1 em {
+    color: var(--gold);
+    font-style: italic;
+  }
+  .hero-sub {
+    color: rgba(255,255,255,0.8);
+    font-size: 18px;
+    max-width: 640px;
+    line-height: 1.7;
+    margin-bottom: 36px;
+    animation: fadeUp 1s ease-out 0.15s both;
+  }
+  .hero-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 32px;
+    animation: fadeUp 1s ease-out 0.3s both;
+  }
+  .hero-meta-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    color: white;
+  }
+  .hero-meta-item svg { flex-shrink: 0; margin-top: 2px; }
+  .hero-meta-item .label {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--gold-soft);
+    font-weight: 600;
+  }
+  .hero-meta-item .value { font-size: 15px; font-weight: 500; }
+
+  /* ── SECTION STYLES ── */
+  section { padding: 80px 0; }
+
+  .section-label {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--maroon);
+    margin-bottom: 12px;
+  }
+  .section-heading {
+    font-family: var(--font-display);
+    font-size: clamp(1.8rem, 3vw, 2.4rem);
+    color: var(--gray-800);
+    margin-bottom: 16px;
+    line-height: 1.2;
+  }
+  .section-intro {
+    font-size: 17px;
+    color: var(--gray-600);
+    max-width: 640px;
+    line-height: 1.7;
+    margin-bottom: 48px;
+  }
+
+  /* ── ABOUT ── */
+  .about { background: var(--gray-100); }
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+    align-items: start;
+  }
+  .about-text p {
+    font-size: 16px;
+    line-height: 1.8;
+    color: var(--gray-600);
+    margin-bottom: 20px;
+  }
+  .keynote-card {
+    background: white;
+    border-radius: 8px;
+    padding: 36px;
+    box-shadow: 0 2px 24px rgba(0,0,0,0.06);
+    border-left: 4px solid var(--gold);
+  }
+  .keynote-card .kc-label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--maroon);
+    margin-bottom: 14px;
+  }
+  .keynote-card .kc-name {
+    font-family: var(--font-display);
+    font-size: 22px;
+    color: var(--gray-800);
+    margin-bottom: 6px;
+  }
+  .keynote-card .kc-title {
+    font-size: 15px;
+    color: var(--gray-400);
+    margin-bottom: 18px;
+    line-height: 1.5;
+  }
+  .keynote-card .kc-bio {
+    font-size: 14px;
+    color: var(--gray-600);
+    line-height: 1.7;
+  }
+  .co-sponsors {
+    margin-top: 24px;
+    padding-top: 24px;
+    border-top: 1px solid var(--gray-200);
+  }
+  .co-sponsors .kc-label { margin-bottom: 10px; }
+  .co-sponsors p {
+    font-size: 14px;
+    color: var(--gray-600);
+    line-height: 1.6;
+  }
+
+  /* ── PANELS ── */
+  .panels-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  .panel-item {
+    background: white;
+    border-radius: 8px;
+    padding: 32px 36px;
+    box-shadow: 0 1px 12px rgba(0,0,0,0.04);
+    border: 1px solid var(--gray-200);
+    transition: border-color 0.3s, box-shadow 0.3s;
+  }
+  .panel-item:hover {
+    border-color: var(--gold);
+    box-shadow: 0 4px 20px rgba(140,29,64,0.06);
+  }
+  .panel-time {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--maroon);
+    margin-bottom: 8px;
+  }
+  .panel-title {
+    font-family: var(--font-display);
+    font-size: 20px;
+    color: var(--gray-800);
+    margin-bottom: 10px;
+  }
+  .panel-speakers {
+    font-size: 14px;
+    color: var(--gray-600);
+    line-height: 1.6;
+  }
+  .panel-note {
+    font-size: 12px;
+    color: var(--gray-400);
+    font-style: italic;
+    margin-top: 12px;
+  }
+
+  /* ── ONLINE PARTICIPATION ── */
+  .online-section {
+    background: linear-gradient(160deg, var(--maroon-dark) 0%, var(--maroon) 100%);
+    color: white;
+    position: relative;
+    overflow: hidden;
+  }
+  .online-section::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    right: -5%;
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, rgba(255,198,39,0.06) 0%, transparent 70%);
+    border-radius: 50%;
+    transform: translateY(-50%);
+  }
+  .online-section .section-label { color: var(--gold); }
+  .online-section .section-heading { color: white; }
+  .online-section .section-intro { color: rgba(255,255,255,0.75); }
+  .online-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    position: relative;
+    z-index: 1;
+  }
+  .online-info h3 {
+    font-family: var(--font-display);
+    font-size: 20px;
+    color: var(--gold);
+    margin-bottom: 16px;
+  }
+  .online-info p {
+    font-size: 15px;
+    line-height: 1.8;
+    color: rgba(255,255,255,0.8);
+    margin-bottom: 20px;
+  }
+  .online-steps {
+    list-style: none;
+    counter-reset: steps;
+  }
+  .online-steps li {
+    counter-increment: steps;
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    margin-bottom: 20px;
+    font-size: 15px;
+    color: rgba(255,255,255,0.85);
+    line-height: 1.6;
+  }
+  .online-steps li::before {
+    content: counter(steps);
+    flex-shrink: 0;
+    width: 32px;
+    height: 32px;
+    background: rgba(255,198,39,0.15);
+    border: 1px solid rgba(255,198,39,0.3);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--gold);
+  }
+  .online-note {
+    background: rgba(255,198,39,0.1);
+    border: 1px solid rgba(255,198,39,0.2);
+    border-radius: 6px;
+    padding: 20px 24px;
+    font-size: 14px;
+    color: rgba(255,255,255,0.85);
+    line-height: 1.7;
+    margin-top: 12px;
+  }
+  .online-note strong { color: var(--gold); }
+
+  /* ── RSVP SECTION ── */
+  .rsvp-section { background: var(--gray-100); }
+  .rsvp-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: start;
+  }
+  .rsvp-info h3 {
+    font-family: var(--font-display);
+    font-size: 22px;
+    color: var(--gray-800);
+    margin-bottom: 16px;
+  }
+  .rsvp-info p {
+    font-size: 15px;
+    color: var(--gray-600);
+    line-height: 1.7;
+    margin-bottom: 16px;
+  }
+  .rsvp-details {
+    background: white;
+    border-radius: 6px;
+    padding: 24px;
+    margin-top: 24px;
+  }
+  .rsvp-detail-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 12px 0;
+    border-bottom: 1px solid var(--gray-200);
+    font-size: 14px;
+  }
+  .rsvp-detail-row:last-child { border-bottom: none; }
+  .rsvp-detail-row svg { flex-shrink: 0; margin-top: 2px; color: var(--maroon); }
+  .rsvp-detail-row .detail-label {
+    font-weight: 700;
+    color: var(--gray-800);
+    min-width: 70px;
+  }
+  .rsvp-detail-row .detail-value { color: var(--gray-600); }
+
+  /* ── FORM ── */
+  .rsvp-form {
+    background: white;
+    border-radius: 8px;
+    padding: 40px;
+    box-shadow: 0 4px 30px rgba(0,0,0,0.06);
+    border-top: 4px solid var(--maroon);
+  }
+  .rsvp-form h3 {
+    font-family: var(--font-display);
+    font-size: 22px;
+    color: var(--maroon);
+    margin-bottom: 8px;
+  }
+  .btn-submit {
+    padding: 16px 32px;
+    background: var(--maroon);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-family: var(--font-body);
+    font-size: 16px;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+  }
+  .btn-submit:hover {
+    background: var(--maroon-dark);
+    transform: translateY(-1px);
+    box-shadow: 0 6px 20px rgba(140,29,64,0.25);
+  }
+
+  /* ── BOOK TALK BANNER ── */
+  .book-talk-banner {
+    background: var(--gold);
+    padding: 40px 0;
+  }
+  .btb-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 32px;
+    flex-wrap: wrap;
+  }
+  .btb-text h3 {
+    font-family: var(--font-display);
+    font-size: 22px;
+    color: var(--maroon);
+    margin-bottom: 6px;
+  }
+  .btb-text p {
+    font-size: 15px;
+    color: var(--gray-800);
+  }
+  .btb-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 14px 28px;
+    background: var(--maroon);
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+    font-weight: 700;
+    font-size: 14px;
+    letter-spacing: 0.03em;
+    transition: background 0.2s, transform 0.2s;
+    flex-shrink: 0;
+  }
+  .btb-link:hover {
+    background: var(--maroon-dark);
+    transform: translateY(-1px);
+  }
+
+  /* ── FOOTER ── */
+  .site-footer {
+    background: var(--black);
+    color: rgba(255,255,255,0.6);
+    padding: 48px 0 32px;
+    font-size: 14px;
+  }
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 48px;
+    margin-bottom: 36px;
+  }
+  .footer-brand .fb-title {
+    color: var(--gold);
+    font-family: var(--font-display);
+    font-size: 18px;
+    margin-bottom: 4px;
+  }
+  .footer-brand .fb-school {
+    color: rgba(255,255,255,0.5);
+    font-size: 13px;
+    margin-bottom: 16px;
+  }
+  .footer-brand p { line-height: 1.6; margin-bottom: 16px; }
+  .footer-col h4 {
+    color: white;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+  }
+  .footer-col a {
+    display: block;
+    color: rgba(255,255,255,0.6);
+    text-decoration: none;
+    margin-bottom: 10px;
+    font-size: 14px;
+    transition: color 0.2s;
+  }
+  .footer-col a:hover { color: var(--gold); }
+  .footer-bottom {
+    border-top: 1px solid rgba(255,255,255,0.1);
+    padding-top: 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 13px;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  .footer-bottom a { color: var(--gold); text-decoration: none; }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes fadeDown {
+    from { opacity: 0; transform: translateY(-12px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 768px) {
+    .header-nav { display: none; }
+    .about-grid,
+    .online-grid,
+    .rsvp-grid,
+    .footer-grid { grid-template-columns: 1fr; }
+    .form-row { grid-template-columns: 1fr; }
+    .hero { padding: 60px 0 50px; }
+    .hero-meta { gap: 20px; }
+    .btb-inner { flex-direction: column; text-align: center; }
+    section { padding: 56px 0; }
+  }
+
+</style>
+</head>
+<body>
+
+<!-- UTILITY BAR -->
+<div class="utility-bar">
+  <div class="container">
+    <span>Sandra Day O'Connor College of Law &nbsp;|&nbsp; Arizona State University</span>
+    <a href="https://law.asu.edu/civil-rights-migration-and-workplace-law-initiative" target="_blank">Initiative Home &rarr;</a>
+  </div>
+</div>
+
+<!-- HEADER -->
+<header class="site-header">
+  <div class="container">
+    <div class="header-brand">
+      <span class="school-name">Sandra Day O'Connor College of Law</span>
+      <span class="initiative-name">Civil Rights, Migration &amp; Workplace Law Initiative</span>
+    </div>
+    <nav class="header-nav">
+      <a href="#about">About</a>
+      <a href="#schedule">Schedule</a>
+      <a href="#online">Watch Online</a>
+      <a href="http://tiny.cc/mixtedstatusapril9" target="_blank" class="btn-rsvp-nav">RSVP Now</a>
+    </nav>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="container hero-inner">
+    <div class="hero-dateline">
+      <span>April 9, 2026</span>
+      <span class="dot"></span>
+      <span>ASU Law</span>
+      <span class="dot"></span>
+      <span>Free &amp; Open to the Public</span>
+    </div>
+    <h1>American Families <em>Under Threat</em></h1>
+    <p class="hero-sub">Immigration Enforcement, Resistance and Narratives Through the Lens of Mixed-Status Families — A day-long symposium convening leading scholars, practitioners, journalists, and community voices at the Sandra Day O'Connor College of Law.</p>
+    <div class="hero-meta">
+      <div class="hero-meta-item">
+        <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+        <div>
+          <div class="label">Date</div>
+          <div class="value">Wednesday, April 9, 2026</div>
+        </div>
+      </div>
+      <div class="hero-meta-item">
+        <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        <div>
+          <div class="label">Time</div>
+          <div class="value">9:00 AM – 5:00 PM MST</div>
+        </div>
+      </div>
+      <div class="hero-meta-item">
+        <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        <div>
+          <div class="label">Venue</div>
+          <div class="value">Armstrong Great Hall, ASU Law</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-text">
+        <p class="section-label">About the Symposium</p>
+        <h2 class="section-heading">A Critical Conversation at a Defining Moment</h2>
+        <p>Millions of American families include members with different immigration statuses — citizens, permanent residents, DACA recipients, visa holders, and undocumented loved ones living side by side. Today, these families face unprecedented challenges as enforcement policies reshape the landscape of belonging in the United States.</p>
+        <p>This symposium brings together nationally recognized scholars, legal practitioners, journalists, and community leaders to examine how immigration enforcement impacts mixed-status families — and how communities are responding with resilience, advocacy, and legal innovation.</p>
+        <p>Convened by the Civil Rights, Migration and Workplace Law Initiative at ASU Law, this full-day event offers a rare opportunity to engage with leading voices at the intersection of immigration law, civil rights, and family life in America.</p>
+      </div>
+      <div>
+        <div class="keynote-card">
+          <div class="kc-label">Keynote Speaker</div>
+          <div class="kc-name">Professor César Cuauhtémoc García Hernández</div>
+          <div class="kc-title">The Ohio State University, Moritz College of Law</div>
+          <div class="kc-bio">A leading national voice on immigration law and policy, Professor García Hernández is the author of <em>Welcome the Wretched</em> and <em>Migrating to Prison</em>. His scholarship examines the intersection of criminal and immigration law and the human impact of enforcement policy.</div>
+        </div>
+        <div class="co-sponsors" style="margin-top: 28px;">
+          <div class="keynote-card" style="border-left-color: var(--maroon);">
+            <div class="kc-label">Co-Sponsors</div>
+            <p class="kc-bio">ASU Hispanic Research Center &nbsp;·&nbsp; School of Transborder Studies</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SCHEDULE / PANELS -->
+<section id="schedule">
+  <div class="container">
+    <p class="section-label">Symposium Schedule</p>
+    <h2 class="section-heading">Panels &amp; Presentations</h2>
+    <p class="section-intro">The day features a keynote address and four expert panels examining mixed-status families from legal, scholarly, journalistic, and community perspectives. Times are approximate; final schedule to follow.</p>
+
+    <div class="panels-list">
+      <div class="panel-item">
+        <div class="panel-time">Morning &middot; Opening</div>
+        <div class="panel-title">Keynote Address</div>
+        <div class="panel-speakers">Professor César Cuauhtémoc García Hernández, The Ohio State University, Moritz College of Law</div>
+      </div>
+
+      <div class="panel-item">
+        <div class="panel-time">Morning &middot; Panel 1</div>
+        <div class="panel-title">The Legal &amp; Scholarly Landscape</div>
+        <div class="panel-speakers">Featuring leading scholars examining mixed-status families through legal and academic frameworks, including perspectives from immigration law, constitutional rights, and transborder studies.</div>
+      </div>
+
+      <div class="panel-item">
+        <div class="panel-time">Midday &middot; Panel 2</div>
+        <div class="panel-title">Public Narratives &amp; Media Perspectives</div>
+        <div class="panel-speakers">A dialogue with journalists, advocates, and community leaders on how mixed-status families are represented — and misrepresented — in public discourse and media coverage.</div>
+      </div>
+
+      <div class="panel-item">
+        <div class="panel-time">Afternoon &middot; Panel 3</div>
+        <div class="panel-title">Diplomacy, Consular Protection &amp; Binational Realities</div>
+        <div class="panel-speakers">Exploring the roles of consular offices, binational organizations, and international perspectives in supporting mixed-status families and transborder communities.</div>
+      </div>
+
+      <div class="panel-item">
+        <div class="panel-time">Afternoon &middot; Panel 4</div>
+        <div class="panel-title">Community Response: Legal Services, Advocacy &amp; Resistance</div>
+        <div class="panel-speakers">Practitioners and community organizers discuss frontline legal services, know-your-rights efforts, and grassroots strategies supporting families under threat.</div>
+        <div class="panel-note">Moderated by Professor Evelyn H. Cruz, ASU Law</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PARTICIPATE ONLINE -->
+<section class="online-section" id="online">
+  <div class="container">
+    <p class="section-label">Can't Attend In Person?</p>
+    <h2 class="section-heading">Participate Online</h2>
+    <p class="section-intro">This symposium will be available via livestream for participants joining from anywhere in the country. We welcome virtual attendees — and still ask that you RSVP so we can share access details and keep you informed.</p>
+
+    <div class="online-grid">
+      <div class="online-info">
+        <h3>How It Works</h3>
+        <ol class="online-steps">
+          <li><a href="http://tiny.cc/mixtedstatusapril9" target="_blank" style="color: var(--gold); font-weight: 600;">Register here</a> and select <strong>"Attending Online"</strong> as your participation format.</li>
+          <li>You will receive a confirmation email with a dedicated livestream link prior to the event.</li>
+          <li>On April 9, join the livestream at 9:00 AM MST to watch the keynote, panels, and Q&amp;A sessions in real time.</li>
+        </ol>
+      </div>
+      <div>
+        <div class="online-note">
+          <strong>Why RSVP for online participation?</strong><br><br>
+          Registering allows us to send you the livestream link, any schedule updates, and post-event resources including recordings and supplemental materials. Your RSVP also helps us demonstrate the national reach and impact of this important conversation.
+        </div>
+        <div class="online-note" style="margin-top: 16px;">
+          <strong>Accessibility</strong><br><br>
+          We are committed to making this event accessible. If you need accommodations for online participation, please note your needs in the RSVP form or contact us directly at <a href="/cdn-cgi/l/email-protection#b2d1c0dfc5dedbdcdbc6dbd3c6dbc4d7f2d5dfd3dbde9cd1dddf" style="color: var(--gold);"><span class="__cf_email__" data-cfemail="c2a1b0afb5aeabacabb6aba3b6abb4a782a5afa3abaeeca1adaf">[email&#160;protected]</span></a>.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RSVP -->
+<section class="rsvp-section" id="rsvp">
+  <div class="container">
+    <p class="section-label">Register</p>
+    <h2 class="section-heading">RSVP for the Symposium</h2>
+    <p class="section-intro">Whether attending in person at ASU Law or joining the livestream, please register below. This event is free and open to the public.</p>
+
+    <div class="rsvp-grid">
+      <div class="rsvp-info">
+        <h3>Event Details</h3>
+        <p>Registration is free. Space in Armstrong Great Hall is limited for in-person attendees, so we encourage early registration. Online participation is unlimited.</p>
+
+        <div class="rsvp-details">
+          <div class="rsvp-detail-row">
+            <svg width="16" height="16" fill="none" stroke="var(--maroon)" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+            <span class="detail-label">Date</span>
+            <span class="detail-value">Wednesday, April 9, 2026</span>
+          </div>
+          <div class="rsvp-detail-row">
+            <svg width="16" height="16" fill="none" stroke="var(--maroon)" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            <span class="detail-label">Time</span>
+            <span class="detail-value">9:00 AM – 5:00 PM MST</span>
+          </div>
+          <div class="rsvp-detail-row">
+            <svg width="16" height="16" fill="none" stroke="var(--maroon)" stroke-width="2" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            <span class="detail-label">Venue</span>
+            <span class="detail-value">Armstrong Great Hall, Sandra Day O'Connor College of Law, Arizona State University</span>
+          </div>
+          <div class="rsvp-detail-row">
+            <svg width="16" height="16" fill="none" stroke="var(--maroon)" stroke-width="2" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            <span class="detail-label">Contact</span>
+            <span class="detail-value"><a href="/cdn-cgi/l/email-protection#84e7f6e9f3e8edeaedf0ede5f0edf2e1c4e3e9e5ede8aae7ebe9" style="color: var(--maroon);"><span class="__cf_email__" data-cfemail="cdaebfa0baa1a4a3a4b9a4acb9a4bba88daaa0aca4a1e3aea2a0">[email&#160;protected]</span></a></span>
+          </div>
+          <div class="rsvp-detail-row">
+            <svg width="16" height="16" fill="none" stroke="var(--maroon)" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg>
+            <span class="detail-label">Format</span>
+            <span class="detail-value">In-Person &amp; Livestream</span>
+          </div>
+        </div>
+
+        <div style="margin-top: 28px;">
+          <h3>Parking &amp; Directions</h3>
+          <p>The Sandra Day O'Connor College of Law is located on the ASU Downtown Phoenix campus. Visitor parking is available in nearby ASU structures. Additional details will be provided in your confirmation email.</p>
+        </div>
+      </div>
+
+      <!-- RSVP CTA -->
+      <div>
+        <div class="rsvp-form" id="rsvpFormContainer">
+          <div style="text-align: center; padding: 20px 0;">
+            <svg width="64" height="64" viewBox="0 0 64 64" fill="none" style="margin-bottom: 20px;">
+              <circle cx="32" cy="32" r="32" fill="rgba(140,29,64,0.08)"/>
+              <rect x="18" y="16" width="28" height="32" rx="3" stroke="var(--maroon)" stroke-width="2.5" fill="none"/>
+              <path d="M25 28h14M25 34h14M25 40h8" stroke="var(--maroon)" stroke-width="2" stroke-linecap="round"/>
+              <circle cx="44" cy="42" r="10" fill="var(--gold)" stroke="white" stroke-width="2"/>
+              <path d="M40 42l3 3 5-5" stroke="var(--maroon)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <h3>Register Now</h3>
+            <p style="font-size: 15px; color: var(--gray-600); line-height: 1.7; margin-bottom: 28px;">Whether you plan to attend in person at ASU Law or join the livestream from anywhere in the country, please complete our brief registration form. Registration is free and takes less than a minute.</p>
+            <a href="http://tiny.cc/mixtedstatusapril9" target="_blank" class="btn-submit" style="display: inline-block; text-decoration: none; text-align: center; padding: 18px 48px; font-size: 18px;">Register for the Symposium</a>
+            <p style="font-size: 14px; color: var(--gray-400); margin-top: 20px; line-height: 1.6;">You will be directed to our registration form.<br>Both in-person and online participants should register.</p>
+          </div>
+          <div style="border-top: 1px solid var(--gray-200); margin-top: 28px; padding-top: 24px; text-align: center;">
+            <p style="font-size: 13px; color: var(--gray-400); line-height: 1.6;">Questions? Contact us at <a href="mailto:crmwlinitiative@gmail.com" style="color: var(--maroon); font-weight: 600;">crmwlinitiative@gmail.com</a></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BOOK TALK BANNER -->
+<div class="book-talk-banner">
+  <div class="container">
+    <div class="btb-inner">
+      <div class="btb-text">
+        <h3>Join Us the Night Before — Book Talk: <em>Welcome the Wretched</em></h3>
+        <p>April 8, 2026 &nbsp;·&nbsp; 6:00 – 8:00 PM &nbsp;·&nbsp; Arizona Latino Arts and Cultural Center &nbsp;·&nbsp; Free with Registration</p>
+      </div>
+      <a href="https://tinyurl.com/booktalk2026" class="btb-link" target="_blank">
+        Register for Book Talk
+        <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="fb-title">Civil Rights, Migration &amp; Workplace Law Initiative</div>
+        <div class="fb-school">Sandra Day O'Connor College of Law &nbsp;·&nbsp; Arizona State University</div>
+        <p>Advancing justice through public education, interdisciplinary scholarship, community engagement, and the development of the next generation of civil rights leaders.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <a href="https://law.asu.edu/civil-rights-migration-and-workplace-law-initiative" target="_blank">Initiative Home</a>
+        <a href="https://law.asu.edu/newsroom/david-lopez-trailblazing-civil-rights-leader-rejoin-asu-law-full-time-faculty-member" target="_blank">About Professor Lopez</a>
+        <a href="https://rss.com/podcasts/derechos-y-esperanza" target="_blank">Podcast</a>
+      </div>
+      <div class="footer-col">
+        <h4>Support</h4>
+        <a href="https://www.asufoundation.org/changing-futures/empower-community-resilience/civil-rights-migration-and-workplace-law-initiative-CA127953.html" target="_blank">Make a Gift</a>
+        <a href="mailto:crmwlinitiative@gmail.com">Contact Us</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 Arizona State University. All rights reserved.</span>
+      <a href="https://www.asufoundation.org/changing-futures/empower-community-resilience/civil-rights-migration-and-workplace-law-initiative-CA127953.html" target="_blank">Support the Initiative &rarr;</a>
+    </div>
+  </div>
+</footer>
+
+
+</body>
+</html>
